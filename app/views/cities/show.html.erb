@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <section class="container">
+
+        <div class="row mt-5 mb-3">    
+          <h1>Nom de la ville:<%= @city.name %> <h1/><br/>
+        </div>
+
+        <div class="container">
+        <p>Liste des gossips associés<p/>
+          <div class="column">
+              <% User.where(city_id: params[:id]).each do |user| %>
+                <% Gossip.where(user_id: user.id).each do |gossip| %>
+                  <div class="card-deck">
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <p class="card-text">
+                          <%=gossip.title%>
+                          <p><%=user.first_name%> <%=user.last_name%></p>
+                          <p><%=City.find(user.city_id).name%></p>
+                          <p><a class="btn btn-dark" <%= link_to "Voir", gossip_path(gossip.id)%></a></p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <%end%>
+              <%end%>
+            </div>
+          </div>
+
+    </section>
+
+
+  </body>
+</html>

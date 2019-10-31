@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <section class="container">
+  
+    <div class="row mt-5 mb-3">
+      <div class="col">
+        <h1 class="text-center">Bonjour</h1>
+        <br><br>
+        <h2 class="text-center">Voici tous les gossips</h2>
+      </div>
+    </div>
+
+      <% Gossip.all.each_with_index do |gossip, index| %>
+
+      <div class="card-deck">
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="card-text">
+                <%= gossip.content %><br/>
+            </p>
+
+            <small class="text-muted"><%= gossip.user.first_name %></small>
+            <div class="row">
+              <form action="/gossips/<%=index.+1%>" method="patch">
+                  <button type="submit" class="btn btn-primary">Show</button>
+              </form>
+              <p><a class="btn btn-dark" <%= link_to "Voir la ville", city_path(gossip.user.city_id)%></a></p>
+              <p><a class="btn btn-default" <%= link_to "Editer", edit_gossip_path(gossip.id)%></a></p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <%end%>
+
+  </section>
+  </body>
+</html>

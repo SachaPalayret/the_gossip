@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+  </head>
+  <body>
+    <section class="container">
+      <div class="row mt-5 mb-3">
+        <div class="col">
+          <h1 class="text-center">Ce que l'on sait su l'auteur</h1>
+          <br>
+          <div class="card mb-3">
+            <div class="card-body">
+              <p class="card-text">
+                <B>Prénom</B> : <%= @user_find.first_name %><br><br>
+                <B>Nom</B> : <%= @user_find.last_name %><br><br>
+                <B>email</B> : <%= @user_find.email %><br><br>
+                <B>age</B> : <%= @user_find.age %><br><br>
+                <B>description</B> : <%= @user_find.description %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

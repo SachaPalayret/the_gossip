@@ -1,0 +1,57 @@
+<br>
+<br>
+
+<div class="d-flex justify-content-center">
+    
+    <h3>Bienvenue sur The Gossip Project:</h3>
+</div>
+
+<div class="d-flex justify-content-center">
+
+    <h3>Un site où les enfants racontes des potins en latin !</h3>
+
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-center mycontainer">
+    <div class="my px-5 row"><button type="button" class="btn btn-success bg-sucess btnSign btn-lg font-weight-bold"> S'inscrire</button></div>
+    <div class="my px-5 row"><button type="button" class="btn btn-primary bg-primary btnSign btn-lg font-weight-bold">Se Connecter</button></div>
+</div>
+
+<br>
+<br>
+
+
+<div class="card-columns">
+
+<% @gossips.each_with_index do |gossip, index| %>  
+
+    <div class="card"> 
+
+        <div class="card-header"
+
+            <h4 class="card-title"> 
+                <div class="d-flex justify-content-center"><%= gossip.title %> </div> <!accessing title of gossip>
+            </h4>  
+
+        </div>
+
+        <div class="card-body">
+
+            <p class="card-text">
+                <div class="d-flex justify-content-center"> <%= gossip.user.firstname %> </div> <!accessing firstname of Author/owner of Gossip>
+            </p>   
+
+            <div class="card-footer">
+                <div class="d-flex justify-content-center"> 
+                <%= link_to "Voir le Gossip", gossip_path(gossip.id), class: "text-decoration-none card-title" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<% end %>
+
+</div>
